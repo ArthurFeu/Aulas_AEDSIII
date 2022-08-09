@@ -7,6 +7,7 @@ class Main {
     g1.addEdge(3, 0, 5);
 
     g1.addEdge(3, 4, 2);
+    g1.addEdge(2, 1, 0);
 
     System.out.println(g1.toString());
     System.out.println(g1.degree(3));

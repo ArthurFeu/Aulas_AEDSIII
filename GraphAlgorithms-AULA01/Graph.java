@@ -18,12 +18,13 @@ public class Graph {
   public void addEdge(int source, int sink, int weight) {
     if (source < 0 || sink < 0 || source > this.countNodes - 1 ||
         sink > this.countNodes - 1) {
-      System.out.println("\nERROR: Cannot add edge with this source, weight or sink.\n-> SOURCE: " + source
+      System.out.println("\nERROR: Cannot add edge with this source or sink.\n-> SOURCE: " + source
           + " | SINK: " + sink + "\n");
-      if (weight < 0) {
-        System.out.println("*Weight have to be greater than zero.*\n");
-      }
       return;
+    }
+    if (weight <= 0) {
+      System.out.println("\nERROR: Weight have to be greater than zero.\n-> SOURCE: " + source
+          + " | SINK: " + sink + "\n");
     }
 
     this.adjMatrix[source][sink] = weight;
@@ -32,10 +33,10 @@ public class Graph {
 
   public int degree(int node) {
     int count = 0;
-      for (int j = 0; j < this.adjMatrix.length; j++) {
-        if (adjMatrix[node][j] != 0)
-          count++;
-      }
+    for (int j = 0; j < this.adjMatrix.length; j++) {
+      if (adjMatrix[node][j] != 0)
+        count++;
+    }
     return count;
   }
 
